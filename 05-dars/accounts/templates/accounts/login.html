@@ -1,0 +1,8 @@
+<form method="post" class="space-y-5">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit"
+    class="w-full py-3 px-4 bg-primary hover:bg-blue-600 text-white font-medium rounded-button">
+    Kirish
+  </button>
+</form>

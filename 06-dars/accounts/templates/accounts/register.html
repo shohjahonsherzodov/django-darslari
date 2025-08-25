@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <style>
+    body{
+      background-color: antiquewhite;
+      justify-content: center;
+    }
+    label{
+      font-size: 30px;
+      font-family: 'Courier New', Courier, monospace;
+      justify-content: center;
+    }
+    input{
+      width: 300px;
+      height: 30px;
+      border: 2px solid black;
+      border-radius: 10px;
+    }
+    button{
+      display: block;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bu ro`yhatdan o`tish sahifasi</h1>
+  <form method="post" action="{% url 'accounts:register' %}">
+    {% csrf_token %}
+    <label for="username">Username: </label>
+    <input type="text" placeholder="user123" id="username" name="username"><br><br>
+
+    <label for="first_name">Ismingiz: </label>
+    <input type="text" placeholder="Shohjahon" id="first_name" name="first_name"><br><br>
+
+    <label for="last_name">Familyangiz: </label>
+    <input type="text" placeholder="Sherzodov" id="last_name" name="last_name"><br><br>
+
+    <label for="email">Email: </label>
+    <input type="email" placeholder="example@gmail.com" id="email" name="email"><br><br>
+
+    <label for="password">Parol: </label>
+    <input type="password" placeholder="*********" id="password" name="password"><br><br>
+
+    <button type="submit">Yuborish</button>
+
+  </form>
+</body>
+</html>

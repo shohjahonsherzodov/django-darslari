@@ -55,3 +55,27 @@ class RegisterTest(TestCase):
         print(response.status_code)
         print(response.content)
         self.assertFormError(response,"form","email","Enter a valid email address.")
+
+
+class LoginTestCase(TestCase):
+    def user_verification(self):
+        self.user = User.objects.create_user(
+            username="Shohjahon",
+            password="1234"
+        )
+
+    def test_login_success(self):
+        response = self.client.post(reverse("login"), {
+            "username": "Shohjahon",
+            "password": "1234"
+        })
+        self.assertEqual(response.status_code, 302)
+
+    def test_login_fail(self):
+        response = self.client.post(reverse("login"), {
+            "username": "Shohjahon",
+            "password": "2134"
+        })
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Please enter a correct username and password")

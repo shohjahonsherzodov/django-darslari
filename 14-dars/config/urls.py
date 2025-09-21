@@ -4,6 +4,6 @@ from .views import landing_page
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', landing_page),
-    path('books/', include('book.urls')),
+    path('', landing_page, name='landing_page'),
+    path('accounts/', include('accounts.urls'), name='accounts'),
 ]

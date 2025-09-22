@@ -42,6 +42,7 @@ class LoginView(View):
         if login_form.is_valid():
             user = login_form.get_user()
             login(request, user)
+            messages.success(request, "Siz tizimga muvvafaqiyatli kirdingiz")
             return redirect("landing_page")
         else:
             return render(request, "accounts/login.html", {"login_form" : login_form})
@@ -49,3 +50,8 @@ class ProfileView(LoginRequiredMixin, View):
     def get(self, request):
         return render(request, "accounts/profile.html", {"accounts:request":"accounts"})
 
+class LogoutView(LoginRequiredMixin, View):
+    def get(self, request):
+        logout(request)
+        messages.info(request, "Siz tizimdan muvaffaqiyatli chiqdingiz!")
+        return redirect("landing_page")

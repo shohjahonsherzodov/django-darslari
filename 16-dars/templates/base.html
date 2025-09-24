@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Bosh sahifa{% endblock %}</title>
+    <style>
+        /* Umumiy stillar */
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f6fa;
+            color: #2f3640;
+        }
+
+        /* 🔹 Hero section (header background image) */
+        .hero {
+            height: 30vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                        url("https://cdn.pixabay.com/photo/2021/09/12/07/58/banner-6617553_960_720.jpg") no-repeat center/cover;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+        }
+
+        /* Logo */
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            color: #ffdd59;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+        }
+
+        /* Nav links */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            display: inline;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: 0.3s ease;
+            padding: 8px 14px;
+            border-radius: 6px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffdd59;
+        }
+
+        /* Hero content */
+        .hero-content {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            margin: 0;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin-top: 10px;
+            color: #f1f1f1;
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <nav class="navbar">
+            <div class="logo"><a href="{% url 'landing_page' %}" style="text-decoration: none; color: yellow;">MySite</a></div>
+            <ul class="nav-links">
+                <li><a href="{% url 'landing_page' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'accounts:login' %}">Sign in</a></li>
+                <li><a href="{% url 'accounts:register' %}">Sign up</a></li>
+            </ul>
+        </nav>
+        <div class="hero-content">
+            <h1>Welcome to MySite</h1>
+            <p>Learn, Code and Grow with us 🚀</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
+</body>
+</html>

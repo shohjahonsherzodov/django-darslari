@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}Biz haqimizda{% endblock %}
+
+{% block content %}
+<div class="about-container">
+    <h1>Biz haqimizda</h1>
+    <p>
+        Assalomu alaykum! 👋 Bu sayt orqali siz <strong>Django</strong>, 
+        <strong>Python</strong> va boshqa dasturlash bo‘yicha bilimlaringizni 
+        oshirishingiz mumkin.  
+    </p>
+    <p>
+        Maqsadimiz – dasturlashni oson va qiziqarli tarzda o‘rganishga yordam berish 🚀
+    </p>
+    <div class="about-card">
+        <img src="https://static.vecteezy.com/system/resources/previews/000/551/079/non_2x/laptop-computer-vector-icon.jpg" alt="Biz haqimizda rasm">
+        <h2>Bizning jamoa</h2>
+        <p>
+            Biz yosh dasturchilar jamoasi bo‘lib, sizga 
+            o‘z bilimlarimizni ulashishga tayyormiz 💡
+        </p>
+    </div>
+</div>
+
+<style>
+    .about-container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+
+    .about-container h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        background: linear-gradient(90deg, #6a11cb, #2575fc);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .about-container p {
+        font-size: 18px;
+        color: #444;
+        margin-bottom: 15px;
+        line-height: 1.6;
+    }
+
+    .about-card {
+        margin-top: 30px;
+        padding: 25px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .about-card img {
+        border-radius: 50%;
+        margin-bottom: 15px;
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .about-card h2 {
+        margin-bottom: 10px;
+        color: #2f3640;
+    }
+
+    .about-card p {
+        font-size: 16px;
+        color: #333;
+    }
+</style>
+{% endblock %}

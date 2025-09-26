@@ -1,14 +1,13 @@
-from django.shortcuts import render
 from django.views import View
-from .forms import UserCreateForm, UserLoginForm
-from django.contrib.auth.models import User
-from django.shortcuts import redirect
 from django.contrib.auth import login
+from django.contrib.auth.models import User
+from django.shortcuts import redirect, render
+from .forms import UserCreateForm, UserLoginForm
 from django.contrib.auth.forms import AuthenticationForm
 
 
 class RegisterView(View):
-    def get(self, request):
+    def get(self, request):     
         create_form = UserCreateForm
         context = {
             "form":create_form

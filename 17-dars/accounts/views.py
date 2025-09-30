@@ -50,7 +50,7 @@ class LoginView(View):
         
 class ProfileView(LoginRequiredMixin, View):
     def get(self, request):
-        return render(request, "accounts/profil.html", {"accounts:request":"accounts"})
+        return render(request, "accounts/profile.html", {"accounts:request":"accounts"})
 
 class LogoutView(LoginRequiredMixin, View):
     def get(self, request):

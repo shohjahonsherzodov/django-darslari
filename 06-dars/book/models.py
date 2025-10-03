@@ -18,7 +18,7 @@ class Author(models.Model):
     bio = models.TextField()
     
     def __str__(self):
-        return F"{self.first_name} {self.last_name}"
+        return f"{self.first_name} {self.last_name}"
 class BookAuthor(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     author = models.ForeignKey( Author, on_delete=models.CASCADE)

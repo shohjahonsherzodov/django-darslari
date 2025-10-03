@@ -68,13 +68,4 @@ def profile_update(request):
         'profile_form' : profile_form
     }
     return render(request, 'accounts/profile_update.html', context)
-# User yaratilganda avtomatik Profile yaratish
-@receiver(post_save, sender=User)
-def create_user_profile(sender, instance, created, **kwargs):
-    if created:  # faqat yangi user yaratilsa
-        Profile.objects.create(user=instance)
-
-# Har safar User saqlansa, Profile ham saqlansin
-@receiver(post_save, sender=User)
-def save_user_profile(sender, instance, **kwargs):
-    instance.profile.save()
+ 

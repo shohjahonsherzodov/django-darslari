@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register</title>
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regiter sahifa</title>
 </head>
 <body>
-  <h1>Bu ro`yhatdan o`tish sahifasi</h1>
-  <form action="{% url 'accounts:register' %}" method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Yuborish</button>
-  </form>
+    <h1>Salom bu Register page</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Yuborish</button>
+    </form>
 </body>
 </html>

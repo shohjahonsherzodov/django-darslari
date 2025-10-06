@@ -1,4 +1,6 @@
+from django.views import View
 from django.shortcuts import render
 
-def landing_page(request):
+class HomePageView(View):
+    def get(self, request):
         return render(request, 'landing_page.html')

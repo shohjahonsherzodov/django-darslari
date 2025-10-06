@@ -1,5 +1,6 @@
+from django.views import View
 from django.shortcuts import render
 
-def landing_page(request):
-    print(request.COOKIES["sessionid"])
-    return render(request, 'landing_page.html')
+class LandingPageView(View):
+    def get(self, request):
+        return render(request, 'landing_page.html')

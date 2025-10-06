@@ -6,6 +6,9 @@
     <title>Bosh sahifa</title>
 </head>
 <body>
-    <h1>Bu bosh sahifa</h1>
+    <h1>Welcome to my site!</h1>
+    <a href="{% url 'accounts:register' %}">Sign up</a>
+    <a href="{% url 'accounts:login' %}">Sign in</a>
+    <a href="{% url 'list' %}">Kitoblar</a>
 </body>
 </html>

@@ -1,12 +1,19 @@
 from django.shortcuts import render
 from django.views import View
-from book.models import Book
+from .models import Book
 
-class BooksView(View):
+class BookListView(View):
     def get(self, request):
         books = Book.objects.all()
-        return render(request, 'books/list.html', {"books" : books})
+        context = {
+            'books' : books
+        }
+        return render(request, 'book/list.html', context)
+    
 class BookDetailView(View):
     def get(self, request, id):
         book = Book.objects.get(id=id)
-        return render(request, 'books/detail.html', {'book':book})
+        context = {
+            'book' : book
+        }
+        return render(request, 'book/detail.html', context)

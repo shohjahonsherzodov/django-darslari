@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile page</title>
+</head>
+{% block content %}
+<body>
+    <h1>{{ user.username }}ning saxifasi</h1>
+    <img src="{{ user.profile_picture.url }}" alt="Profile Image" style="border-radius: 50%; width: 200px; height: 200px;">
+    <p>Username: {{ user.username }}</p>
+    <a href="{% url 'accounts:profile_update' %}">Profilni yangilash</a>
+    <a href="{% url 'home' %}">Ortga qaytish</a>
+
+    <a href="{% url 'accounts:profile_update' %}">Taxrirlash</a>
+</body>
+{% endblock %}
+
+</html>

@@ -20,10 +20,11 @@ class RegisterView(View):
             context = {
                 'create_form' : create_form
             }
-            return redirect(request, 'accounts/register.html', context)
+            return render(request, 'accounts/register.html', context)
+        
 class LoginView(View):
     def get(self, request):
-        login_form = AuthenticationForm()
+        login_form = AuthenticationForm
         context = {
             'login_form' : login_form 
         }
@@ -31,7 +32,7 @@ class LoginView(View):
     def post(self, request):
         login_form = AuthenticationForm(data=request.POST)
         if login_form.is_valid():
-            user = login_form.get_user()
+            user = login_form.get_user()    
             login(request, user)
             return redirect('landing_page')
         else:

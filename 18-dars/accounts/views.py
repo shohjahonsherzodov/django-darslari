@@ -3,15 +3,12 @@ from .forms import UserCreateForm, UserLoginForm
 from django.contrib.auth import logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import View
-from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout
 from .forms import UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
-from django.db.models.signals import post_save
-from django.dispatch import receiver
-from .models import Profile
+
 
 
 class RegisterView(View):
@@ -42,9 +39,11 @@ class LoginView(View):
             return redirect('home')
         else:
             return render(request, 'accounts/login.html', {'login_form' : login_form})
+        
 class ProfileView(LoginRequiredMixin, View):
     def get(self, request):
         return render(request, 'accounts/profile.html', {'user' : request.user })
+    
 class LogoutView(LoginRequiredMixin, View):
     def get(self, request):
         logout(request)
